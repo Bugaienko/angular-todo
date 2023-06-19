@@ -1,0 +1,8 @@
+.completed {
+   text-decoration: line-through;
+   color: #797979;
+   background-color: rgba(0, 148, 253, 0.15);
+}
+.novalue {
+   color: #797979;
+}
