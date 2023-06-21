@@ -1,0 +1,42 @@
+.completed {
+   text-decoration: line-through;
+   color: #797979;
+   background-color: rgba(0, 148, 253, 0.02);
+}
+
+.completed-id {
+   background-color: rgba(0, 148, 253, 0.02);
+}
+
+.novalue {
+   color: #797979;
+}
+
+.col-id {
+   width: 4%;
+   text-align: center;
+}
+
+.col-title {
+   width: 40%;
+}
+
+.col-priority {
+   width: 10%;
+}
+
+.col-select {
+   width: 3%;
+}
+
+.col-operations {
+   width: 8%;
+}
+
+.col-color {
+   width: 1% !important;
+}
+
+.col-date {
+   width: 10% !important;
+}

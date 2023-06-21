@@ -8,19 +8,25 @@ import { TaskListComponent } from './views/task-list/task-list.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { MainComponent } from './views/main/main.component';
+import {RouterModule, RouterOutlet} from "@angular/router";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
    declarations: [
       AppComponent,
       CategoriesComponent,
-      TaskListComponent
+      TaskListComponent,
+      MainComponent
    ],
    imports: [
       BrowserModule,
       BrowserAnimationsModule,
       MatTableModule,
       MatSortModule,
-      MatPaginatorModule
+      MatPaginatorModule,
+      RouterOutlet,
+      AppRoutingModule
    ],
    providers: [],
    bootstrap: [AppComponent]

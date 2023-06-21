@@ -35,7 +35,7 @@ export class TaskListComponent implements OnInit {
 
    getPriorityColor(task: Task): string {
       if (task.completed) {
-         return '#0094FD26';
+         return '#0094FD26'; //Todo вынести цвета в константы
       }
 
       if (task.priority && task.priority.color) {
