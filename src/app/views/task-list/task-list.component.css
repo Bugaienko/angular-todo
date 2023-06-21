@@ -7,6 +7,15 @@
 .completed-id {
    background-color: rgba(0, 148, 253, 0.02);
 }
+.no-found {
+   text-align: center;
+   color: #6b6969;
+   margin-top: 1rem;
+   /*color: #ed9a3c;*/
+}
+.v-align {
+   vertical-align: middle;
+}
 
 .novalue {
    color: #797979;
@@ -18,7 +27,7 @@
 }
 
 .col-title {
-   width: 40%;
+   min-width: 40%;
 }
 
 .col-priority {
