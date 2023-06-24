@@ -4,6 +4,8 @@ import {DataHandlerService} from "../../service/data-handler.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
+import {MatDialog} from "@angular/material/dialog";
+import {EditTaskDialogComponent} from "../dialog/edit-task-dialog/edit-task-dialog.component";
 
 @Component({
    selector: 'app-task-list',
@@ -38,7 +40,10 @@ export class TaskListComponent implements OnInit {
 
 
 
-   constructor(private dataHandler: DataHandlerService) {
+   constructor(
+      private dataHandler: DataHandlerService,
+      private dialog: MatDialog,
+   ) {
 
    }
 
@@ -108,8 +113,14 @@ export class TaskListComponent implements OnInit {
       this.addTableObjects();
    }
 
-   clickByTaskTitle(task: Task) {
+   openEditTaskDialog(task: Task): void {
       // console.log(row);
       this.updateTask.emit(task);
+
+      const dialogRef = this.dialog.open(EditTaskDialogComponent, {data: [task, 'Edit task'], autoFocus: false})
+
+      dialogRef.afterClosed().subscribe(result => {
+         //todo result
+      });
    }
 }
