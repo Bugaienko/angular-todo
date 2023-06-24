@@ -3,13 +3,4 @@
    justify-content: center !important;
 }
 
-.mat-mdc-dialog-surface {
-   padding: 10px !important;
-}
-
-.mdc-dialog__surface {
-   background-color: red;
-   padding: 30px !important;
-}
-
 
