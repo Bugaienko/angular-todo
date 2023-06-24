@@ -9,15 +9,18 @@ import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import { MainComponent } from './views/main/main.component';
-import {RouterModule, RouterOutlet} from "@angular/router";
+import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
+import {MatDialogModule} from "@angular/material/dialog";
+import { EditTaskDialogComponent } from './views/dialog/edit-task-dialog/edit-task-dialog.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       CategoriesComponent,
       TaskListComponent,
-      MainComponent
+      MainComponent,
+      EditTaskDialogComponent
    ],
    imports: [
       BrowserModule,
@@ -26,9 +29,11 @@ import {AppRoutingModule} from "./app-routing.module";
       MatSortModule,
       MatPaginatorModule,
       RouterOutlet,
-      AppRoutingModule
+      AppRoutingModule,
+      MatDialogModule
    ],
    providers: [],
+   // entryComponents: [EditTaskDialogComponent], в версиях выше 9 не нужно указывать компоненты, которые могут быть поверх всех
    bootstrap: [AppComponent]
 })
 export class AppModule {

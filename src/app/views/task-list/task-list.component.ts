@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Task} from "../../model/Task";
 import {DataHandlerService} from "../../service/data-handler.service";
 import {MatTableDataSource} from "@angular/material/table";
@@ -10,7 +10,7 @@ import {MatSort} from "@angular/material/sort";
    templateUrl: './task-list.component.html',
    styleUrls: ['./task-list.component.css']
 })
-export class TaskListComponent implements OnInit, AfterViewInit {
+export class TaskListComponent implements OnInit {
 
    displayedColumns: string[] =
       ['color', 'id', 'title', 'date', 'priority', 'category'];
@@ -19,18 +19,36 @@ export class TaskListComponent implements OnInit, AfterViewInit {
    @ViewChild(MatPaginator, {static: false}) private paginator!: MatPaginator;
    @ViewChild(MatSort, {static: false}) private sort!: MatSort;
 
-   tasks?: Task[];
+   private tasks!: Task[];
+
+   @Input('tasks')
+   set setTasks(tasks : Task[]) {
+      this.tasks = tasks;
+      this.fillTable();
+   }
+
+   @Output()
+   updateTask = new EventEmitter<Task>();
+
+
+
+   get getTasks() {
+      return this.tasks;
+   }
+
+
 
    constructor(private dataHandler: DataHandlerService) {
 
    }
 
    ngOnInit(): void {
-      this.dataHandler.taskSubject.subscribe(tasks => this.tasks = tasks);
+      // this.dataHandler.taskSubject.subscribe(tasks => this.tasks = tasks);
+      // this.dataHandler.getAllTasks().subscribe(tasks => this.tasks = tasks);
 
       this.dataSource = new MatTableDataSource();
 
-      this.refreshTable();
+      this.fillTable();
 
    }
 
@@ -50,7 +68,11 @@ export class TaskListComponent implements OnInit, AfterViewInit {
       return '#fff';
    }
 
-   private refreshTable() {
+   private fillTable() {
+
+      if (!this.dataSource) {
+         return;
+      }
       // @ts-ignore
       this.dataSource.data = this.tasks;
 
@@ -84,5 +106,10 @@ export class TaskListComponent implements OnInit, AfterViewInit {
 
    ngAfterViewInit(): void {
       this.addTableObjects();
+   }
+
+   clickByTaskTitle(task: Task) {
+      // console.log(row);
+      this.updateTask.emit(task);
    }
 }

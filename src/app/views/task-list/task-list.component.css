@@ -49,3 +49,7 @@
 .col-date {
    width: 10% !important;
 }
+
+.pointer {
+   cursor: pointer;
+}
