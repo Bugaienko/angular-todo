@@ -12,3 +12,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
    /*background-color: #0b75c9 !important;*/
    padding: 8px !important;
 }
+.mat-mdc-dialog-container{
+   /*background-color: #0c83e2 !important;*/
+   padding: 20px !important;
+   min-width: 500px !important;
+}
+
+.mat-mdc-form-field {
+   width: 100% !important;
+   /*background-color: lawngreen !important;*/
+}

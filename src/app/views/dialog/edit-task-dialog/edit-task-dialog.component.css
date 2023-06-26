@@ -2,5 +2,7 @@
    text-align: center;
    justify-content: center !important;
 }
-
+.dialog-task-title {
+   font-size: 25px !important;
+}
 

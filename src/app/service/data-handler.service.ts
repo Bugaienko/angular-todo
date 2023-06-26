@@ -47,4 +47,8 @@ export class DataHandlerService {
       return this.taskDataArray.search(category, searchText, status, priority)
 
    }
+
+   updateTask(task: Task): Observable<Task> {
+      return this.taskDataArray.update(task);
+   }
 }

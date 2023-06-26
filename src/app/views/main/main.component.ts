@@ -39,6 +39,18 @@ export class MainComponent implements OnInit {
    onSelectTask(selectedTask: Task) {
       this.selectedTaskMain = selectedTask;
       // console.log("mai ts -> ");
-      console.log(this.selectedTaskMain);
+      // console.log(this.selectedTaskMain);
+
+      this.dataHandler.updateTask(selectedTask).subscribe(() => {
+         this.dataHandler.searchTasks(
+            this.selectedCategoryMain,
+            undefined,
+            undefined,
+            undefined
+         )
+            .subscribe((tasks: Task[]) => {
+               this.tasks = tasks;
+            })
+      })
    }
 }

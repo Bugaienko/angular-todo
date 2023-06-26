@@ -18,6 +18,8 @@ import {FormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+import {MatSelectModule} from "@angular/material/select";
+import {MatOptionModule} from "@angular/material/core";
 
 @NgModule({
    declarations: [
@@ -41,6 +43,8 @@ import {MatIconModule} from "@angular/material/icon";
       MatInputModule,
       MatButtonModule,
       MatIconModule,
+      MatOptionModule,
+      MatSelectModule,
 
 
    ],
